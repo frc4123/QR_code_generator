@@ -26,7 +26,7 @@ public class Generator {
 
             // Create a qr code with the url as content and a size of 250x250 px
             hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
-            BitMatrix bitMatrix = writer.encode(link, BarcodeFormat.QR_CODE, 250, 250, hints);
+            BitMatrix bitMatrix = writer.encode(link, BarcodeFormat.QR_CODE, 300, 300, hints);
             MatrixToImageConfig config = new MatrixToImageConfig(MatrixToImageConfig.BLACK, MatrixToImageConfig.WHITE);
             // Load QR image
             BufferedImage qrImage = MatrixToImageWriter.toBufferedImage(bitMatrix, config);
@@ -38,9 +38,10 @@ public class Generator {
     void makeQrCode(String link, String pathToLogo, String outputFileName) throws WriterException, IOException {
             if(pathToLogo.equalsIgnoreCase("tribe")){
                 pathToLogo = System.getProperty("user.dir") + System.getProperty("file.separator") +"tribe_qr_logo.jpg";
+                System.out.println(pathToLogo);
             }
             // Create a qr code with the url as content and a size of 250x250 px
-            BitMatrix bitMatrix = writer.encode(link, BarcodeFormat.QR_CODE, 250, 250, hints);
+            BitMatrix bitMatrix = writer.encode(link, BarcodeFormat.QR_CODE, 300, 300, hints);
             MatrixToImageConfig config = new MatrixToImageConfig(MatrixToImageConfig.BLACK, MatrixToImageConfig.WHITE);
             // Load QR image
             BufferedImage qrImage = MatrixToImageWriter.toBufferedImage(bitMatrix, config);
